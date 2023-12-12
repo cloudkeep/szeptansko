@@ -57,7 +57,8 @@
 	<select bind:value={targetLanguage}>
 		<option value="en">Angielski</option>
 		<option value="pl">Polski</option>
-		<!-- Dodaj więcej języków -->
+		<option value="es">Hiszpański</option>
+		<option value="de">Niemiecki</option>
 	</select>
 	<button type="submit" disabled={isSubmitting}>Przetłumacz</button>
 </form>
@@ -69,7 +70,7 @@
 {#if responseReceived}
 	<p>Przetłumaczony tekst: {translatedText}</p>
 	{#if downloadUrl}
-		<a href={downloadUrl} download="translated_audio.wav">Pobierz plik audio</a>
+		<a href={downloadUrl} target="_blank" download="translated_audio.wav">Pobierz plik audio</a>
 	{/if}
 {:else if errorMessage}
 	<p class="error">{errorMessage}</p>
