@@ -23,7 +23,7 @@
 		errorMessage = '';
 
     try {
-			const response = await fetch('http://64.227.112.111:8000/translate/', {
+			const response = await fetch('https://szeptansko.devacat.com/translate/', {
 				method: 'POST',
 				body: formData
 			});
@@ -31,7 +31,7 @@
 			if (response.ok) {
 				const result = await response.json();
 				translatedText = result.translated_text;
-				downloadUrl = `http://64.227.112.111:8000/download/${result.file_path}`;
+				downloadUrl = `https://szeptansko.devacat.com/download/${result.file_path}`;
 				responseReceived = true;
 			} else {
 				const errorResult = await response.text(); // Pobieranie treści błędu
