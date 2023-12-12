@@ -1,4 +1,5 @@
 <script>
+	// @ts-ignore
 	let file;
 	let text = '';
 	let targetLanguage = 'en';
