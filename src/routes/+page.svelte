@@ -74,3 +74,11 @@
 {:else if errorMessage}
 	<p class="error">{errorMessage}</p>
 {/if}
+
+
+
+
+Wiktoria Potoniec
+Vladyslav Khmara
+Julia Fedko
+Grzegorz Chwasta
