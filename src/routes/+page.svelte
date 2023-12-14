@@ -79,7 +79,7 @@
 
 
 
-Wiktoria Potoniec
-Vladyslav Khmara
-Julia Fedko
-Grzegorz Chwasta
+Wiktoria Potoniec,<br>
+Vladyslav Khmara,<br>
+Julia Fedko,<br>
+Grzegorz Chwasta.
