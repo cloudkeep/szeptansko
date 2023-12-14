@@ -78,7 +78,7 @@
 
 
 
-
+<br>
 Wiktoria Potoniec,<br>
 Vladyslav Khmara,<br>
 Julia Fedko,<br>
