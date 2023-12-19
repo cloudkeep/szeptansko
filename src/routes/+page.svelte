@@ -26,6 +26,7 @@
 	}
 
 	async function handleSubmit() {
+			audioUrl = '';
 			const formData = new FormData();
 			if (file) {
 					formData.append('file', file);
@@ -73,7 +74,6 @@
 
 	// @ts-ignore
 	function handleFileChange(event) {
-			audioUrl = '';
 			file = event.target.files[0];
 			if (file) {
 					text = '';
