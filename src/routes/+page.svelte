@@ -85,7 +85,7 @@
 </script>
 
 
-<div class="mx-auto max-w-xl px-6 rounded-md my-5 bg-base-200 py-1">
+<div class="mx-auto max-w-xl px-6 rounded-xl my-5 bg-base-200 py-1">
 	<div class="prose select-none p-2">
 		<h1 class="font-bold text-3xl flex justify-center items-center">
 				<span class="opacity-100">s</span>
@@ -138,7 +138,7 @@
 </form>
 
 {#if isSubmitting}
-    <div class="flex justify-center items-center my-2">
+    <div class="flex justify-center items-center my-5">
         <span class="loading loading-spinner loading-lg"></span>
     </div>
 {/if}
@@ -185,7 +185,7 @@
 					<a href={audioUrl} download="translated_audio.wav" class="btn btn-secondary">Pobierz plik audio</a>
 			</div>
 
-			<div class="divider">dodatkowe informacje</div>
+			<div class="divider"></div>
 
 			<div class="grid card bg-base-300 rounded-box place-items-center py-3 gap-y-2">
 					<div class="badge badge-accent">{detectedLanguage}</div>
@@ -196,3 +196,12 @@
 {/if}
 
 </div>
+
+<footer class="footer footer-center p-4 bg-base-300 text-base-content mt-auto">
+  <aside>
+    <p>Wiktoria Potoniec,<br>
+Vladyslav Khmara,<br>
+Julia Fedko,<br>
+Grzegorz Chwasta.</p>
+  </aside>
+</footer>
