@@ -39,7 +39,7 @@
 			alertType = '';
 
 			try {
-					const response = await fetch('http://127.0.0.1:8000/translate/', {
+					const response = await fetch('https://szeptansko.devacat.com/translate/', {
 							method: 'POST',
 							body: formData
 					});
@@ -54,7 +54,7 @@
 									detectedLanguage = result.detected_language;
 									languagePair = result.language_pair;
 									ttsModel = result.tts_model;
-									audioUrl = `http://127.0.0.1:8000/download/${result.file_path}`;
+									audioUrl = `https://szeptansko.devacat.com/download/${result.file_path}`;
 									alertType = 'success';
 									responseMessage = 'Tłumaczenie zakończone sukcesem';
 							}
