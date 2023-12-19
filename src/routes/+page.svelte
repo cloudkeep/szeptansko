@@ -73,6 +73,7 @@
 
 	// @ts-ignore
 	function handleFileChange(event) {
+			audioUrl = '';
 			file = event.target.files[0];
 			if (file) {
 					text = '';
