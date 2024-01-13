@@ -40,6 +40,9 @@
 			if (sourceLanguage !== 'auto'){
 				formData.append('source_language', sourceLanguage);
 			}
+			else {
+				formData.append('source_language', '');
+			}
 
 			isSubmitting = true;
 			responseMessage = '';
