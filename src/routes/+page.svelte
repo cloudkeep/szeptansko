@@ -1,10 +1,13 @@
 <script>
+
+	import LanugageTable from '$lib/components/LanguageTable.svelte';
 	/**
 	 * @type {string | Blob | null}
 	 */
 	 let file;
 	let text = '';
 	let targetLanguage = 'en';
+	let sourceLanguage = 'auto';
 	let translatedText = '';
 	let detectedLanguage = '';
 	let languagePair = '';
@@ -14,6 +17,7 @@
 	let responseMessage = '';
 	let errorMessage = '';
 	let alertType = '';
+	let detectedText = '';
 
 	function clearFile() {
 			file = null;
@@ -33,6 +37,9 @@
 			}
 			formData.append('text', text);
 			formData.append('target_language', targetLanguage);
+			if (sourceLanguage !== 'auto'){
+				formData.append('source_language', sourceLanguage);
+			}
 
 			isSubmitting = true;
 			responseMessage = '';
@@ -52,6 +59,7 @@
 									responseMessage = result.message;
 							} else {
 									translatedText = result.translated_text;
+									detectedText = result.detected_text;
 									detectedLanguage = result.detected_language;
 									languagePair = result.language_pair;
 									ttsModel = result.tts_model;
@@ -126,12 +134,28 @@
 
 	</div>
 	<div class="flex flex-col">
+		<label for="sourceLanguage" class="text-lg">Wybierz język źródłowy:</label>
+		<select bind:value={sourceLanguage} id="sourceLanguage" class="select select-bordered">
+				<option value="auto">Automatycznie</option>
+				<option value="en">Angielski</option>
+				<option value="pl">Polski</option>
+				<option value="es">Hiszpański</option>
+				<option value="de">Niemiecki</option>
+				<option value="it">Włoski</option>
+				<option value="uk">Ukraiński</option>
+				<option value="fr">Francuski</option>
+		</select>
+	</div>
+	<div class="flex flex-col">
 			<label for="targetLanguage" class="text-lg">Wybierz język docelowy:</label>
 			<select bind:value={targetLanguage} id="targetLanguage" class="select select-bordered">
-					<option value="en">Angielski</option>
-					<option value="pl">Polski</option>
-					<option value="es">Hiszpański</option>
-					<option value="de">Niemiecki</option>
+				<option value="en">Angielski</option>
+				<option value="pl">Polski</option>
+				<option value="es">Hiszpański</option>
+				<option value="de">Niemiecki</option>
+				<option value="it">Włoski</option>
+				<option value="uk">Ukraiński</option>
+				<option value="fr">Francuski</option>
 			</select>
 	</div>
 	<button type="submit" disabled={isSubmitting} class="btn btn-primary">Przetłumacz</button>
@@ -171,7 +195,12 @@
 
 	{#if audioUrl}
 	<div class="flex flex-col w-full py-3">
-
+		Tekst rozpoznany:
+		<div class="grid card bg-base-300 rounded-box place-items-center py-1 prose">
+			<div><p class="text-lg break-words text-center">{detectedText}</p></div>
+				
+		</div>
+		Tekst przetłumaczony:
 			<div class="grid card bg-base-300 rounded-box place-items-center py-1 prose">
 				<div><p class="text-lg break-words text-center">{translatedText}</p></div>
 					
@@ -194,8 +223,19 @@
 			</div>
 	</div>
 {/if}
+<div class="collapse collapse-arrow bg-base-200">
+  <input type="checkbox" /> 
+  <div class="collapse-title text-xl font-medium ">
+    Dostępne kierunki tłumaczenia
+  </div>
+  <div class="collapse-content"> 
+    <LanugageTable />
+  </div>
+</div>
 
 </div>
+
+
 
 <footer class="footer footer-center p-4 bg-base-300 text-base-content mt-auto">
   <aside>
