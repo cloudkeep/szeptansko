@@ -37,12 +37,7 @@
 			}
 			formData.append('text', text);
 			formData.append('target_language', targetLanguage);
-			if (sourceLanguage !== 'auto'){
-				formData.append('source_language', sourceLanguage);
-			}
-			else {
-				formData.append('source_language', '');
-			}
+			formData.append('source_language', sourceLanguage);
 
 			isSubmitting = true;
 			responseMessage = '';
